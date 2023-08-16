@@ -57,18 +57,18 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
     # llvm v8 is too old for Big Sur see
     # https://github.com/microsoft/AirSim/issues/3691
-    #export CC=/usr/local/opt/llvm@8/bin/clang
-    #export CXX=/usr/local/opt/llvm@8/bin/clang++
+    #export CC=/usr/local/opt/llvm@8/bin/clang-14
+    #export CXX=/usr/local/opt/llvm@8/bin/clang++-14
     #now pick up whatever setup.sh installs
-    export CC="$(brew --prefix)/opt/llvm/bin/clang"
-    export CXX="$(brew --prefix)/opt/llvm/bin/clang++"
+    export CC="$(brew --prefix)/opt/llvm/bin/clang-14"
+    export CXX="$(brew --prefix)/opt/llvm/bin/clang++-14"
 else
     if $gcc; then
-        export CC="gcc"
-        export CXX="g++"
+        export CC="gcc-14"
+        export CXX="g++-14"
     else
-        export CC="clang"
-        export CXX="clang++"
+        export CC="clang-14"
+        export CXX="clang++-14"
     fi
 fi
 
